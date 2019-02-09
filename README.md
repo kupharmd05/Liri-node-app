@@ -1,8 +1,8 @@
 # Liri-node-app
 
 ##Liri will accept the follow commands
-*spotify-this-song <insert song name>
-*movie-this <insert movie name>
-*concert-this <insert band name>
+*spotify-this-song 
+*movie-this 
+*concert-this 
 *do-what-it-says
 
