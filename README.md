@@ -12,5 +12,5 @@ Liri will accept the follow commands
 
 
 
-![](./assets/liri_movie-this_working_example.png)
-![](./assets/spotify-this_working_example.png)
+![](./assets/liri_movie-this_working_example.PNG)
+![](./assets/spotify-this_working_example.PNG)
