@@ -12,3 +12,6 @@ Liri will accept the follow commands
 
 ![liri_movie-this_working_example](https://user-images.githubusercontent.com/43359312/52515086-2d57b400-2bdd-11e9-8ad0-91eb42cb34bc.PNG)
 ![liri concert-this working example](https://user-images.githubusercontent.com/43359312/52515176-de5e4e80-2bdd-11e9-9245-fbd5113ee061.PNG)
+
+![](./assets/liri_movie-this_working_example)
+![](./assets/spotify-this_working_example)
