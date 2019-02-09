@@ -139,13 +139,13 @@ function fileSystem (){
         if(error){
             return console.log(error);
         }
-        console.log(data);
+        // console.log(data);
 
         var dataArr = data.split(",");
         var operator = dataArr[0];
-        console.log(operator);
+        // console.log(operator);
         var input = dataArr[1];
-        console.log(input);
+        // console.log(input);
 
         switch(operator){
             case "spotify-this-song":
