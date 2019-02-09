@@ -12,9 +12,10 @@ Liri will accept the follow commands
 
 
 
-![](./assets/liri_movie-this_working_example.PNG)
-![](./assets/spotify-this-song_working-example.PNG)
-![](./assets/do-what-it-says_working_example.PNG)
-![](./assets/spotify-this-song_working-example_no_input.PNG)
-![](./assets/)
+![movie-this_working_example](./assets/liri_movie-this_working_example.PNG)
+![movie-this_working_example_no_input](/assets/movie-this_working_example_no_input.PNG)
+![spotify-this_working_example](./assets/spotify-this-song_working-example.PNG)
+![spotify-this_working_example_no_input](./assets/spotify-this-song_working-example_no_input.PNG)
+![liri-concert-this_working_example](./assets/liri-concert-this_working_example.PNG)
+![do-what-it-says_working_example](./assets/do-what-it-says_working_example.PNG)
 
