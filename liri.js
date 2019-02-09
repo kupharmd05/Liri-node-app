@@ -6,27 +6,30 @@ var moment = require("moment")
 var axios = require("axios");
 var fs = require("fs");
 
+var inputs = process.argv;
 var operator = process.argv[2];
 
+// Testing for correct operator from input
+// console.log(operator);
+var liriInput = process.argv.slice(3).join(" ")
 
-console.log(operator);
-
+console.log(liriInput);
 
 switch (operator) {
     case "movie-this":
-    movie();
+    movie(liriInput);
     break;
 
     case "concert-this":
-    concert();
+    concert(liriInput);
     break;
 
     case "spotify-this-song":
-    spotify();
+    spotify(liriInput);
     break;
 
     case "do-what-it-says":
-    fileSystem();
+    fileSystem(liriInput);
     break;
 
     default:
@@ -38,66 +41,48 @@ switch (operator) {
 
 
 
-function movie(movieName){
-var nodeArgs = process.argv;
-
-// Create an empty variable for holding the movie name
-var movieName = "";
-// Allow for movies with more than one word in the title
-for (var i = 3; i < nodeArgs.length; i++) {
-
-    if (i > 3 && i < nodeArgs.length) {
-      movieName = movieName + "+" + nodeArgs[i];
-    }
-    else {
-      movieName += nodeArgs[i];
-
-  }
-}
+function movie(liriInput){
 // set empty value to "Mr. Nobody"
-if (!movieName){
+if (!liriInput){
     movieName = "Mr. Nobody"
+} else {
+    movieName = liriInput;
 }
-console.log(movieName);
+// 
+// console.log(movieName);
 
 var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
-
-
-console.log(queryUrl);
-
-
+// Testing url
+// console.log(queryUrl);
 
 axios.get(queryUrl).then(
   function(response) {
-    console.log(response.data);
+    // console.log(response.data);
     var rd = response.data
-    console.log("Title: "+ rd.Title +"\n"+"Released: "+ rd.Year+"\n"+"IMDB Rating: "+rd.imdbRating+"\n"+"Country: "+ rd.Country+"\n"+"Plot: "+ rd.Plot+"\n"+"Actors: "+ rd.Actors+"\n"+"Rotten Tomatoes Rating: "+rd.Ratings[1].Value)
+   
+    console.log(`
+    Title: ${rd.Title}
+    Released: ${rd.Year}
+    IMDB Rating: ${rd.imdbRating}
+    Rotten Tomatoes Rating: ${rd.Ratings[1].Value}
+    Country: ${rd.Country}
+    Language: ${rd.Language}
+    Plot:${rd.Plot}
+    Actors:${rd.Actors}
+    `)
     }
     );
     }
 
 
-function spotify(songName){
-    var nodeArgs = process.argv;
-
-    // Create an empty variable for holding the song name
-    var songName = "";
-    // Allow for songs with more than one word
-    for (var i = 3; i < nodeArgs.length; i++) {
-    
-        if (i > 3 && i < nodeArgs.length) {
-          songName = songName + "+" + nodeArgs[i];
-        }
-        else {
-          songName += nodeArgs[i];
-    
-      }
-    }
+function spotify(liriInput){
 // set empty value to "The Sign by Ace of Base"
-    if (!songName){
+    if (!liriInput){
         songName = "The Sign Ace of Base"
+    } else {
+        songName = liriInput;
     }
-    console.log(songName);
+    
 
 
     var spotify = new Spotify({
@@ -114,32 +99,20 @@ function spotify(songName){
         let previewUrl = songData[0].preview_url
         let album = songData[0].album.name
 
-        console.log("Artist: "+ artist + "\n" + "Song Name: "+ songName+ "\n"+ "Preview: "+ previewUrl+"\n"+ "Album: "+ album)
+        console.log(`
+        Artist: ${artist}
+        Song Name: ${songName}
+        Preview: ${previewUrl}
+        Album: ${album}
+        `)
     })
 }
 
 
-function concert(artistName){
-    var nodeArgs = process.argv;
+function concert(liriInput){
+var queryUrl = "https://rest.bandsintown.com/artists/" + liriInput + "/events?app_id=codingbootcamp";
 
-     // Create an empty variable for holding the artist name
-    var artistName = "";
-    // Allow for artists with more than one name in artist name
-    for (var i = 3; i < nodeArgs.length; i++) {
-    
-        if (i > 3 && i < nodeArgs.length) {
-          artistName = artistName + "+" + nodeArgs[i];
-        }
-        else {
-          artistName += nodeArgs[i];
-    
-      }
-    }
-    console.log(artistName);
-
-    var queryUrl = "https://rest.bandsintown.com/artists/" + artistName + "/events?app_id=codingbootcamp";
-
-    console.log(queryUrl);
+    // console.log(queryUrl);
 axios
 .get(queryUrl)
 .then(function(response) {
@@ -151,7 +124,12 @@ axios
         let location = rd[i].venue.city + ", "+ rd[i].venue.country
         let dateBIT = rd[i].datetime
         let dateMoment = moment(dateBIT).format("MM/DD/YYYY") + "\n"
-    console.log("Venue: " + venue + "\n"+"Location: " + location +"\n"+ dateMoment)}
+    
+    console.log(`
+    Venue: ${venue}
+    Location: ${location}
+    Date: ${dateMoment}
+    `)}
 });
 }
     
