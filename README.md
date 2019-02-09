@@ -10,4 +10,4 @@ Liri will accept the follow commands
 * concert-this  band name
 * do-what-it-says
 
-![GitHub Logo](/assets/liri movie-this working example.png)
+![](assets/liri_movie-this_working_example)
