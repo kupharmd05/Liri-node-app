@@ -13,6 +13,6 @@ Liri will accept the follow commands
 
 
 ![](./assets/liri_movie-this_working_example.PNG)
-![](./assets/spotify-this_working_example.PNG)
+![](./assets/spotify-this-song_working-example.PNG)
 ![](./assets/do-what-it-says_working_example.PNG)
 ![](./assets/spotify-this-song_working-example_no_input.PNG)
