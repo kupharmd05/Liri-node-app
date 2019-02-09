@@ -13,7 +13,7 @@ var operator = process.argv[2];
 // console.log(operator);
 var liriInput = process.argv.slice(3).join(" ")
 
-console.log(liriInput);
+// console.log(liriInput);
 
 switch (operator) {
     case "movie-this":
@@ -60,6 +60,7 @@ axios.get(queryUrl).then(
     // console.log(response.data);
     var rd = response.data
    
+    
     console.log(`
     Title: ${rd.Title}
     Released: ${rd.Year}
