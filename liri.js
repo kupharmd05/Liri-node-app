@@ -6,7 +6,7 @@ var moment = require("moment")
 var axios = require("axios");
 var fs = require("fs");
 
-var inputs = process.argv;
+
 var operator = process.argv[2];
 
 // Testing for correct operator from input
